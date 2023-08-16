@@ -5,13 +5,16 @@
 /**
  * _isalpha - Checks if a character is alphabetic
  *
- * *@c: The character to check
+ * @c: The character to check
  *
- * *Return: 1 if the character is alphabetic, 0 otherwise
+ * Return: 1 if the character is alphabetic, 0 otherwise
  *
- * @description This function checks if a character is alphabetic.
+ * Description: This function checks if a character is alphabetic.
  */
 int _isalpha(int c)
 {
-return (isalpha(c));
+if (isalpha(c))
+return (1);
+else
+return (0);
 }
