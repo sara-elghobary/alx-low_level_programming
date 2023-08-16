@@ -13,5 +13,9 @@
  */
 int _islower(int c)
 {
-return (islower(c));
+	if (islower(c))
+		return (1);
+	else
+		return (0);
+
 }
