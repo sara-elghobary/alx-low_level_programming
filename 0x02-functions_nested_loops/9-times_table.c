@@ -20,8 +20,7 @@ if (j > 0)
 _putchar(',');
 _putchar(' ');
 }
-_putchar(p / 10 + '0');
-_putchar(p % 10 + '0');
+_putchar(p);
 }        
 _putchar('\n');
 }
