@@ -9,14 +9,15 @@
  */
 int main() {
     int n = 1;
-    int sum = 0;  // Initialize sum to 0
+    int sum = 0;
+
     while (n <= 1024)
     {
         if (1024 % n == 0)
         {
             sum += n;
         }
-        n++; // Increment n within the outer loop
+        n++;
     }
     printf("%d", sum);
     return sum;
