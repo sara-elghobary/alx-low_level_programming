@@ -20,5 +20,6 @@ _putchar(last_digit);
 else
 last_digit = -1 * last_digit
 _putchar(last_digit);
+_putchar(\n);
 return (last_digit);
 }
