@@ -18,8 +18,8 @@ int last_digit = n % 10;
 if (a >= 0)
 _putchar(last_digit);
 else
-last_digit = -1 * last_digit
+last_digit = -1 * last_digit;
 _putchar(last_digit);
-_putchar(\n);
+_putchar('\n');
 return (last_digit);
 }
