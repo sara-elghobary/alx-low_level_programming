@@ -10,6 +10,5 @@
  */
 int mul(int a, int b)
 {
-mull = a * b;
-return (mull);
+return (a * b);
 }
