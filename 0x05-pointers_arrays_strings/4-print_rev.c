@@ -1,10 +1,6 @@
 #include "main.h"
 
 /**
- * print_rev - Prints a string in reverse, followed by a newline.
- * @s: The string to be printed in reverse.
- */
-/**
  * _strlen - Calculates the length of a string.
  * @s: The input string.
  *
@@ -21,6 +17,10 @@ s++;
 return (length);
 }
 
+/**
+ * print_rev - Prints a string in reverse, followed by a newline.
+ * @s: The string to be printed in reverse.
+ */
 void print_rev(char *s)
 {
 int i;
