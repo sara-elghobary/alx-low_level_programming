@@ -6,32 +6,32 @@
  *
  * Return: The integer value represented by the input string.
  */
-int myAtoi(char *str)
+int _atoi(char *s)
 {
 int res = 0;
 int sign = 1;
 int i = 0;
 
-while (str[i] == ' ')
+while (s[i] == ' ')
 i++;
 
-if (str[i] == '-')
+if (s[i] == '-')
 {
 sign = -1;
 i++;
 }
-else if (str[i] == '+')
+else if (s[i] == '+')
 {
 i++;
 }
 
-for (; str[i] != '\0'; i++)
+for (; s[i] != '\0'; i++)
 {
-if (str[i] < '0' || str[i] > '9')
+if (s[i] < '0' || s[i] > '9')
 {
 break;
 }
-res = res * 10 + str[i] - '0';
+res = res * 10 + s[i] - '0';
 }
 
 return (sign *res);
