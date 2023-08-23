@@ -1,22 +1,4 @@
 #include <stdio.h>
-#include "main.h"
-/**
- * _strlen - Calculates the length of a string.
- * @s: The input string.
- *
- * Return: The length of the string.
- */
-int _strlen(char *s)
-{
-int length = 0;
-
-while (*s != '\0')
-{
-length++;
-s++;
-}
-return (length);
-}
 
 /**
  * _strcat - Concatenates two strings.
@@ -27,22 +9,23 @@ return (length);
  */
 char *_strcat(char *dest, char *src)
 {
-int len = _strlen(dest);
-int len2 = _strlen(src);
-char stir[(len + len2) + 1];
-int i, j;
+int dest_len = 0;
 
-for (i = 0; dest[i] != '\0'; i++)
+while (dest[dest_len] != '\0')
 {
-stir[i] = dest[i];
+dest_len++;
 }
 
-for (j = 0; src[j] != '\0'; j++, i++)
+int i = 0;
+
+while (src[i] != '\0')
 {
-stir[i] = src[j];
+dest[dest_len] = src[i];
+dest_len++;
+i++;
 }
 
-stir[i] = '\0';
-src = stir;
-return (src);
+dest[dest_len] = '\0';
+
+return (dest);
 }
