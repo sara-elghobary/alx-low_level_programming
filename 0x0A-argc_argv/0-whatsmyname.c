@@ -1,12 +1,17 @@
 #include <stdio.h>
 
-int main(int argc, char *argv[]) {
-    // Check if argc is greater than 0 to ensure argv[0] exists.
-    if (argc > 0) {
-        printf("%s\n", argv[0]);  // Print the program name.
-    } else {
-        printf("Program name not available.\n");
-    }
+/**
+ * main - program that prints its name, followed by a new line
+ * @argc: number of arguments
+ * @argv: array with the arguments
+ *
+ * Return: always 0
+ **/
 
-    return 0;
+int main(int argc, char *argv[])
+{
+	(void)argc;
+
+	printf("%s\n", argv[0]);
+	return (0);
 }
