@@ -9,5 +9,6 @@ int **alloc_grid(int width, int height);
 void free_grid(int **grid, int height);
 char *_memset(char *s, char b, unsigned int n);
 int _putchar(char c);
+int _strlen(char *s);
 
 #endif
