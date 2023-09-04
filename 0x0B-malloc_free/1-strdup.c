@@ -52,14 +52,14 @@ return (dest);
  */
 char *_strdup(char *str)
 {
+int len;
+char *s;
+
 if (str == NULL)
 return (NULL);
 
-int len;
-
 len = _strlen(str);
 
-char *s;
 s = (char *)malloc(len + 1);
 
 if (s == NULL)
