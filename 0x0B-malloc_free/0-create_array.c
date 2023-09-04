@@ -1,6 +1,7 @@
 #include "main.h"
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * _memset - Fill a memory area with a constant byte
@@ -25,12 +26,15 @@ return (s);
 }
 
 /**
- * create_array - Creates an array of characters and initializes it with a specific character.
+ * create_array - Creates an array of characters
+ * and initializes it with a specific character.
  * @size: The number of characters in the array.
  * @c: The character used for initialization.
  *
- * Return: If memory allocation fails or size is 0, returns NULL.
- *         Otherwise, returns a pointer to the newly created and initialized array.
+ * Return: If memory allocation fails or
+ * size is 0, returns NULL.
+ * Otherwise, returns a pointer to the
+ * newly created and initialized array.
  */
 char *create_array(unsigned int size, char c)
 {
