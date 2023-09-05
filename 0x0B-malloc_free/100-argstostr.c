@@ -70,7 +70,7 @@ if (result == NULL)
 return (NULL);
 
 
-for ( i = 0; i < ac; i++)
+for (i = 0; i < ac; i++)
 {
 _strcpy(result + index, av[i]);
 index += _strlen(av[i]);
