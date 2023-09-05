@@ -75,11 +75,9 @@ for ( i = 0; i < ac; i++)
 _strcpy(result + index, av[i]);
 index += _strlen(av[i]);
 
-if (i < ac - 1)
-{
 result[index] = '\n';
 index++;
-}
+
 }
 
 result[index] = '\0';
