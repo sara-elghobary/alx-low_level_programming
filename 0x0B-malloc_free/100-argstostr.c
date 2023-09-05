@@ -61,7 +61,7 @@ if (ac == 0 || av == NULL)
 return (NULL);
 
 for (i = 0; i < ac; i++)
-{
+
 total_length += _strlen(av[i]) + 1;
 
 result = (char *)malloc(total_length + 1);
@@ -84,5 +84,4 @@ index++;
 
 result[index] = '\0';
 return (result);
-}
 }
