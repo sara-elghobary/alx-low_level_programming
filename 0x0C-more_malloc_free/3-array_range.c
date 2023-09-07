@@ -22,7 +22,7 @@ return (NULL);
 for (i = min ; i <= max ; i++)
 len++;
 
-arr = (int *)malloc(len * sizeof(int));
+arr = (int *)malloc(len *sizeof(int));
 
 if (arr == NULL)
 return (NULL);
