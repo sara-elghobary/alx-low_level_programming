@@ -74,6 +74,7 @@ return (dest);
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 char *strncon;
+int lens1;
 
 if (s1 == NULL)
 s1 = "";
@@ -81,9 +82,9 @@ s1 = "";
 if (s2 == NULL)
 s2 = "";
 
-int lens1 = _strlen(s1);
+lens1 = _strlen(s1);
 
-if (n >= _strlen(s2))
+if (n >= (unsigned int)_strlen(s2))
 n = _strlen(s2);
 
 strncon = (char *)malloc(lens1 + n + 1);
