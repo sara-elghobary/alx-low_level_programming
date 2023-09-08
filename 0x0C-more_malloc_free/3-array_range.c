@@ -12,15 +12,12 @@
  */
 int *array_range(int min, int max)
 {
-int len;
+int len = max - min + 1;;
 int *arr;
 int i;
 
 if (min > max)
 return (NULL);
-
-for (i = min ; i <= max ; i++)
-len++;
 
 arr = (int *)malloc(len *sizeof(int));
 
