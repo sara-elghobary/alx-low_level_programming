@@ -1,5 +1,5 @@
 #include "dog.h"
-#include <stdlib.h>
+#include <stdio.h>
 
 /**
  * print_dog - Prints a struct dog and handles NULL elements gracefully.
