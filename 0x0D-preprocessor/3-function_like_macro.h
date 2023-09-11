@@ -1,5 +1,6 @@
 #ifndef MYHEADERS_H
 #define MYHEADERS_H
 
-#define ABS(x) ((x) < 0 ? (x * -1) : (x))
+#define ABS(x) ((x) < 0 ? (x) * -1 : (x))
+
 #endif
