@@ -5,8 +5,10 @@
  * print_dog - Prints a struct dog and handles NULL elements gracefully.
  * @d: A pointer to a struct dog to be printed.
  *
- * Description: This function prints the elements of a struct dog pointed to by @d.
- * It checks if each element (name, age, and owner) is NULL, and if so, it prints "(nil)"
+ * Description: This function prints the elements
+ * of a struct dog pointed to by @d.
+ * It checks if each element (name, age, and owner)
+ * is NULL, and if so, it prints "(nil)"
  * for that element. If @d itself is NULL, nothing is printed.
  */
 void print_dog(struct dog *d)
