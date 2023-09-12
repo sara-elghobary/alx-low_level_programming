@@ -27,5 +27,5 @@ free(newDog->name);
 free(newDog->owner);
 free(newDog);
 return (NULL);
-
+}
 }
