@@ -20,11 +20,12 @@
  */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
+unsigned int i;
+const char *current_string;
+
 va_list args;
 va_start(args, n);
 
-unsigned int i;
-const char *current_string;
 
 for (i = 0; i < n; i++)
 {
