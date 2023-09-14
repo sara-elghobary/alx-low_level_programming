@@ -1,5 +1,7 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
+#include <stdio.h>
+
 
 /**
  * sum_them_all - Calculate the sum of a variable number of integers.
@@ -15,19 +17,33 @@
  */
 int sum_them_all(const unsigned int n, ...)
 {
-if (n == 0)
-return (0);
+unsigned int i;
+unsigned int total;
 
 va_list sum;
 va_start(sum, n);
 
-unsigned int total = 0;
+if (n == 0)
+return (0);
 
-for (unsigned int i = 0; i < n; i++)
+total = 0;
+
+for (i = 0; i < n; i++)
 total += va_arg(sum, int);
 
 
 va_end(sum);
 
 return (total);
+}
+
+int main(void)
+{
+    int sum;
+
+    sum = sum_them_all(2, 98, 1024);
+    printf("%d\n", sum);
+    sum = sum_them_all(4, 98, 1024, 402, -1024);
+    printf("%d\n", sum);    
+    return (0);
 }
