@@ -24,6 +24,13 @@ unsigned int i;
 va_list s;
 va_start(s, n);
 
+if (n == 0)
+{
+printf("\n");
+return;
+}
+
+
 if (separator == NULL)
 separator = "";
 
@@ -33,7 +40,7 @@ if (i == n - 1)
 
 printf("%d\n", va_arg(s, int));
 else
-printf("%d%s", va_arg(s, int),separator);
+printf("%d%s", va_arg(s, int), separator);
 
 }
 
