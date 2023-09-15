@@ -32,10 +32,8 @@ for (i = 0; i < n; i++)
 if (i == n - 1)
 
 printf("%d\n", va_arg(s, int));
-else if (i == 0)
-printf("%d", va_arg(s, int));
 else
-printf("%s%d", separator, va_arg(s, int));
+printf("%d%s", va_arg(s, int),separator);
 
 }
 
