@@ -19,8 +19,8 @@ if (h->str == NULL)
 {
 printf("[0] (nil)");
 }
-else 
-printf("[%u] (%s)",h->len ,h->str );
+else
+printf("[%u] (%s)", h->len, h->str);
 how_much++;
 h = h->next;
 }
