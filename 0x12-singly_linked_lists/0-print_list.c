@@ -11,7 +11,7 @@
  */
 size_t print_list(const list_t *h)
 {
-int how_much = 0;
+size_t how_much = 0;
 
 while (h != NULL)
 {
