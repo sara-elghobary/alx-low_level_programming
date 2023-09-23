@@ -1,16 +1,18 @@
-section    .data
-    msg db "Hello, Holberton", 0xa  ;string to be printed
-    len equ $ - msg              ;length of the string
+section .data
+    hello db "Hello, Holberton",0x0a  ;
 
-section    .text
-   global _start     ;must be declared for linker (ld)
+section .text
+    global main
 
-_start:                ;tells linker entry point
-   mov    edx,len     ;message length
-   mov    ecx,msg     ;message to write
-   mov    ebx,1       ;file descriptor 1 (stdout)
-   mov    eax,4       ;system call number (sys_write)
-   int    0x80        ;call kernel
+    extern printf
 
-   mov    eax,1       ;system call number 1 (sys_exit)
-   int    0x80        ;call kernel
+main:
+    push rbp
+    mov rdi, hello        ;
+    call printf           ;
+    pop rbp
+
+    ; Exit the program
+    mov rax, 60            ;
+    xor rdi, rdi           ;
+    syscall
