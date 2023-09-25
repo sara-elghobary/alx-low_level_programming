@@ -14,7 +14,7 @@ size_t how_much_nodes = 0;
 
 while (h != NULL)
 {
-printf("%d", h->n);
+printf("%d\n", h->n);
 how_much_nodes++;
 h = h->next;
 }
