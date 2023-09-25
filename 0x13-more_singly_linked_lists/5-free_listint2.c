@@ -18,7 +18,7 @@ listint_t *fre;
 while (*head != NULL)
 {
 fre = *head;
-*head = *head->next;
+*head = (*head)->next;
 free(fre);
 
 }
