@@ -7,19 +7,23 @@
  *
  * Description: This function frees the memory allocated
  * for all nodes in the linked list
- * starting from the given head node. It iterates through
- * the list, freeing each node,
+ * starting from the given head node. It iterates
+ * through the list, freeing each node,
  * and updates the head pointer to NULL until the entire list is freed.
  */
 void free_listint2(listint_t **head)
 {
-listint_t *fre;
+listint_t *current;
+
+if (head == NULL || *head == NULL)
+return;
 
 while (*head != NULL)
 {
-fre = *head;
+current = *head;
 *head = (*head)->next;
-free(fre);
-
+free(current);
 }
+
+*head = NULL;
 }
