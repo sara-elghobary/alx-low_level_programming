@@ -1,11 +1,15 @@
 #include <stdio.h>
 #include "main.h"
 
- /**
- * _strlen - Calculates the length of a string.
- * @s: The input string.
+/**
+ * _strlen - Calculate the length of a string.
+ * @s: A pointer to the string.
  *
- * Return: The length of the string.
+ * Description: This function calculates the length of the input string @s
+ * by iterating through the characters until it encounters the null terminator
+ * '\0'. The length is then returned as an integer.
+ *
+ * Return: The length of the string @s.
  */
 int _strlen(const char *s)
 {
