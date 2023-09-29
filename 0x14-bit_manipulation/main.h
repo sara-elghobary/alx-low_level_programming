@@ -1,7 +1,7 @@
 #ifndef MYHEADERS_H
 #define MYHEADERS_H
 
-int _strlen(char *s);
+int _strlen(const char *s);
 unsigned int binary_to_uint(const char *b);
 void print_binary(unsigned long int n);
 int get_bit(unsigned long int n, unsigned int index);

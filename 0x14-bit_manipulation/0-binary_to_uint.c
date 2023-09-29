@@ -1,6 +1,23 @@
 #include <stdio.h>
 #include "main.h"
 
+ /**
+ * _strlen - Calculates the length of a string.
+ * @s: The input string.
+ *
+ * Return: The length of the string.
+ */
+int _strlen(const char *s)
+{
+int length = 0;
+while (*s != '\0')
+{
+length++;
+s++;
+}
+return (length);
+}
+
 /**
  * binary_to_uint - Convert a binary string to an unsigned int.
  * @b: A pointer to the binary string containing '0' and '1' characters.
@@ -14,12 +31,17 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
+int i;
+int bit_position;
+int len;
+unsigned int result = 0;
+
 if (b == NULL)
 return (0);
 
-int len = _strlen(b);
-int i, bit_position;
-unsigned int result = 0;
+
+len = _strlen(b);
+
 
 for (i = len - 1, bit_position = 0; i >= 0; i--, bit_position++)
 {
