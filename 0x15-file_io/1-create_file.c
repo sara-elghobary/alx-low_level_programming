@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <sys/stat.h>
+#include <string.h>
 
 /**
  * create_file - Create a file and write text content to it.
@@ -22,7 +23,7 @@ int fd;
 ssize_t written;
 
 if (filename == NULL || text_content == NULL)
-{
+
 return (-1);
 
 fd = open(filename, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
