@@ -14,7 +14,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 int fd;
 char *buffer;
-ssize_t total_letters;
+size_t total_letters;
 ssize_t chunk_size;
 ssize_t written;
 
