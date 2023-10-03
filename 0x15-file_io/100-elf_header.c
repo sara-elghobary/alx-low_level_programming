@@ -4,39 +4,53 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <string.h>
-
 /**
- * create_file - Create a file and write text content to it.
- * @filename: The name of the file to create.
- * @text_content: A NULL-terminated string to write to the file.
+ * main - copy a file's contents to another file
+ * @argc: the argument count
+ * @argv: the argument values
  *
- * Return: 1 on success, -1 on failure (file cannot be created,
- * write fails, etc.).
- *         The created file must have permissions: rw-------.
- *         If the file already exists, it will be truncated.
- *         If filename is NULL, return -1.
- *         If text_content is NULL, an empty file will be created.
+ * Return: Always 1
  */
-int create_file(const char *filename, char *text_content)
+int main(int argc, const char *argv[])
 {
-int fd;
-ssize_t written;
+	int fd_in, fd_out;
+	ssize_t bytes_read;
+	char buffer[BUFSIZE];
 
-if (filename == NULL || text_content == NULL)
-
-return (-1);
-
-fd = open(filename, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
-if (fd == -1)
-return (-1);
-
-written = write(fd, text_content, strlen(text_content));
-
-if (written == -1)
-{
-close(fd);
-return (-1);
-}
-close(fd);
-return (1);
+	if (argc != 3)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+	fd_in = open(argv[1], O_RDONLY);
+	if (fd_in < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	fd_out = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (fd_out < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		_close(fd_in);
+		exit(99);
+	}
+	while ((bytes_read = _read(argv[1], fd_in, buffer, BUFSIZE)))
+	{
+		if (bytes_read < 0)
+		{
+			_close(fd_in);
+			_close(fd_out);
+			exit(98);
+		}
+		if (_write(argv[2], fd_out, buffer, bytes_read) < 0)
+		{
+			_close(fd_in);
+			_close(fd_out);
+			exit(99);
+		}
+	}
+	if ((_close(fd_in) | _close(fd_out)) < 0)
+		exit(100);
+	return (0);
 }
