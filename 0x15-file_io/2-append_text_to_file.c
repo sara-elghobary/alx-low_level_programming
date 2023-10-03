@@ -24,12 +24,15 @@ fd = open(filename, O_WRONLY | O_APPEND);
 if (fd == -1)
 return (-1);
 
+if (text_content[0] != '\0')
+{
 written = write(fd, text_content, strlen(text_content));
 
 if (written == -1)
 {
 close(fd);
 return (-1);
+}
 }
 
 close(fd);
