@@ -1,7 +1,6 @@
 #include "main.h"
-#include <unistd.h>
-#include <stdlib.h>
 #include <fcntl.h>
+#include <unistd.h>
 #include <sys/stat.h>
 #include <string.h>
 
@@ -14,18 +13,25 @@
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
-ssize_t written;
 int fd;
-if (filename == NULL || text_content == NULL)
+ssize_t written;
+
+if (filename == NULL)
 return (-1);
 
+if (text_content == NULL)
+{
 fd = open(filename, O_WRONLY | O_APPEND);
+if (fd == -1)
+return (-1);
+}
+else
+{
+fd = open(filename, O_WRONLY | O_APPEND | O_CREAT, S_IRUSR | S_IWUSR);
 
 if (fd == -1)
 return (-1);
 
-if (text_content != NULL)
-{
 written = write(fd, text_content, strlen(text_content));
 
 if (written == -1)
