@@ -17,41 +17,41 @@ void tokenize_command(char *command, char *args[]) {
 
 
 
-void execute_external_command(char *args[], char *program_name, int line_number)
-{
+int contains_slash(char *str) {
+    while (*str) {
+        if (*str == '/') {
+            return 1;
+        }
+        str++;
+    }
+    return 0;
+}
+
+void execute_external_command(char *args[], char *program_name, int line_number) {
     char *envp[] = {NULL};
     char exec_path[MAX_COMMAND_LENGTH];
     char *line_number_str;
 
-    if (strchr(args[0], '/') != NULL)
-    {
+    if (contains_slash(args[0])) {
         execve(args[0], args, envp);
-    }
-    else
-    {
+    } else {
         char *path = getenv("PATH");
         char *path_copy = _strdup(path);
         char *dir = strtok(path_copy, ":");
-        while (dir != NULL)
-        {
+        while (dir != NULL) {
             int dir_len = _strlen(dir);
             int arg_len = _strlen(args[0]);
-            if (dir_len + arg_len + 2 <= MAX_COMMAND_LENGTH)
-            {
+            if (dir_len + arg_len + 2 <= MAX_COMMAND_LENGTH) {
                 _strcpy(exec_path, dir);
                 exec_path[dir_len] = '/';
                 _strcpy(exec_path + dir_len + 1, args[0]);
-
-                if (access(exec_path, X_OK) == 0)
-                {
+                if (access(exec_path, X_OK) == 0) {
                     execve(exec_path, args, envp);
                     break;
                 }
             }
-
             dir = strtok(NULL, ":");
         }
-
         free(path_copy);
     }
 

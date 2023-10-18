@@ -4,21 +4,23 @@ int main(int argc, char *argv[]) {
     char *command = NULL;
     size_t len = 0;
     ssize_t read;
+    int i;
     int line_number = 0;
     (void)argc;
-
     while (1) {
         display_prompt();
-
         read = getline(&command, &len, stdin);
         if (read == -1) {
             write(STDOUT_FILENO, "\n", 1);
             break;
         }
-
-        command[strcspn(command, "\n")] = '\0';
+        for ( i = 0; i < read; i++) {
+            if (command[i] == '\n') {
+                command[i] = '\0';
+                break;
+            }
+        }
         line_number++;
-
         if (_strcmp(command, "exit") == 0) {
             break;
         } else if (_strcmp(command, "env") == 0) {
@@ -27,7 +29,6 @@ int main(int argc, char *argv[]) {
             execute_command(command, line_number, argv[0]);
         }
     }
-
     free(command);
     return 0;
 }
