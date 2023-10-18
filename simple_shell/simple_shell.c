@@ -14,10 +14,12 @@ int main(int argc, char *argv[]) {
             write(STDOUT_FILENO, "\n", 1);
             break;
         }
-        for ( i = 0; i < read; i++) {
-            if (command[i] == '\n') {
-                command[i] = '\0';
-                break;
+        if (command != NULL) {
+            for ( i = 0; i < read; i++) {
+                if (command[i] == '\n') {
+                    command[i] = '\0';
+                    break;
+                }
             }
         }
         line_number++;

@@ -32,6 +32,15 @@ void execute_external_command(char *args[], char *program_name, int line_number)
     char exec_path[MAX_COMMAND_LENGTH];
     char *line_number_str;
 
+    if (args[0] == NULL) {
+        write(STDERR_FILENO, program_name, _strlen(program_name));
+        write(STDERR_FILENO, ": ", 2);
+        line_number_str = itoa(line_number, 10);
+        write(STDERR_FILENO, line_number_str, _strlen(line_number_str));
+        write(STDERR_FILENO, ": Invalid command\n", 18);
+        _exit(EXIT_FAILURE);
+    }
+
     if (contains_slash(args[0])) {
         execve(args[0], args, envp);
     } else {
@@ -64,6 +73,7 @@ void execute_external_command(char *args[], char *program_name, int line_number)
     write(STDERR_FILENO, ": not found\n", 12);
     _exit(EXIT_FAILURE);
 }
+
 
 void execute_command(char *command, int line_number, char *program_name) {
     pid_t pid;
