@@ -22,7 +22,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	if (idx == 0)
 	{
-		/* Insert at the beginning of the list */
 		new_node->prev = NULL;
 		new_node->next = current;
 		if (current != NULL)
@@ -30,16 +29,17 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		*h = new_node;  /* Update the head pointer */
 		return (new_node);
 	}
-
 	while (current != NULL)
 	{
 		if (count == idx)
 		{
-			/* Insert at the specified index */
 			new_node->prev = current->prev;
 			new_node->next = current;
+
 			if (current->prev != NULL)
 				current->prev->next = new_node;
+			else
+				*h = new_node;  /* Update the head pointer if inserting at the beginning */
 			current->prev = new_node;
 			return (new_node);
 		}
@@ -47,7 +47,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		current = current->next;
 		count++;
 	}
-
 	free(new_node);
 	return (NULL);
 }
