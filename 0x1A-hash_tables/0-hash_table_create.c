@@ -1,14 +1,4 @@
 #include "hash_tables.h"
-#include <cstddef>
-
-
-/*
- * File: hash_table_create.c
- * Author: John Doe
- * Date: January 1, 2023
- * Description: Implementation of a function to create a hash table.
- */
-
 #include <stdlib.h>
 
 /**
